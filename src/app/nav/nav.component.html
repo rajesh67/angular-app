@@ -1,0 +1,42 @@
+
+<!-- Navbar Component -->
+<header id="desktop-header">
+  
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary navbar-fixed-top">
+    <div class="container d-flex flex-column flex-md-row justify-content-between">
+        <a class="navbar-brand" href="/">
+            SocialJoy
+          </a>
+        
+          <button class="navbar-toggler" type="button" (click)="toggleNavbar()">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        
+        
+          <div class="collapse navbar-collapse" [ngClass]="{ 'show': navbarOpen }">
+            <ul class="nav navbar-nav mr-auto">
+              <li class="nav-item">
+                <a routerLink="/categories" class="nav-link">Categories</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" routerLink="/stores">Stores</a>
+              </li>
+        
+              <li class="nav-item">
+                <a class="nav-link" href="#">Offers</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Deals</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">About</a>
+              </li>
+            </ul>
+          </div>
+    </div>
+  </nav>
+</header>
+
+
+
+

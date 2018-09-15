@@ -1,0 +1,49 @@
+<footer class="footer footer-fixed">
+  <div class="container">
+    
+    <!-- Category Wise Stores Block -->
+    <div class="row">
+
+    </div>
+    <!-- Links Blocks -->
+    <div class="row" style="margin-top: 5%;">
+      <!-- First Column -->
+      <div class="col-lg-3">
+        <ul>
+          <li><h4 style="font-weight:bold; text-transform:uppercase; ">SocialJoy</h4></li>
+          <li><a href="">About Us</a> </li>
+          <li><a href="">Contact Us</a></li>
+          <li><a href="">Privacy Policy</a></li>
+          <li><a href="">Terms of Use</a></li>
+        </ul>
+      </div>
+
+      <!-- Second Column -->
+      <div class="col-lg-3">
+        <ul>
+          <li><h4 style="font-weight:bold; text-transform:uppercase; ">Links</h4></li>
+        </ul>
+      </div>
+
+      <!-- Third Column -->
+      <div class="col-lg-3">
+        <ul>
+          <li><h4 style="font-weight:bold; text-transform:uppercase; ">Categories</h4></li>
+          <li *ngFor="let cat of categories"><a routerLink="/categories/{{cat.pk}}">{{cat.categoryName}}</a></li>
+        </ul>
+      </div>
+
+      <!-- Fourth Column -->
+      <div class="col-lg-3">
+        <ul>
+          <li><h4 style="font-weight:bold; text-transform:uppercase; ">Stay in touch</h4></li>
+          <li>
+            <a class="twitter-timeline" href="https://twitter.com/StatsbotI">Tweets by SocialJoy</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
+          </li>
+        </ul>
+      </div>
+
+    </div>
+    <!-- /Links Blocks -->
+  </div>
+</footer>

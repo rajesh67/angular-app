@@ -1,0 +1,59 @@
+<!-- Page Container -->
+<div class="container" id="page">
+
+  <nav aria-label="breadcrumb" id="navigation">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
+      <li class="breadcrumb-item active" aria-current="page">All Categories</li>
+    </ol>
+  </nav>
+  <!-- /Navigation -->
+
+  <!-- row class -->
+  <div class="row">
+    <div class="col-lg-12 col-sm-12 col-md-12" id="pageHeaders">
+      <p>
+        <strong>All Available Categories</strong>
+      </p>
+    </div>
+    <!-- /header -->
+
+    <div *ngFor="let category of categories" class="catCard col-lg-12">
+      <div class="card" style="">
+        <div class="card-header">
+          <h5>
+            <a routerLink="/categories/{{category.pk}}">
+              <ng-template [ngIf]="category.categoryName=='Recharge'"><fa-icon [icon]="['fas', 'rupee-sign']" size=""></fa-icon></ng-template>
+              <ng-template [ngIf]="category.categoryName=='Fashion'"><fa-icon [icon]="['fas', 'female']" size=""></fa-icon></ng-template>
+              <ng-template [ngIf]="category.categoryName=='Entertainment'"><fa-icon [icon]="['fas', 'film']" size=""></fa-icon></ng-template>
+              <ng-template [ngIf]="category.categoryName=='Food & Grocery'"><fa-icon [icon]="['fas', 'utensils']" size=""></fa-icon></ng-template>
+              <ng-template [ngIf]="category.categoryName=='Baby & Kids'"><fa-icon [icon]="['fas', 'child']" size=""></fa-icon></ng-template>
+              <ng-template [ngIf]="category.categoryName=='Electronics'"><fa-icon [icon]="['fas', 'tv']" size=""></fa-icon></ng-template>
+              <ng-template [ngIf]="category.categoryName=='Flowers & Gifts'"><fa-icon [icon]="['fas', 'gift']" size=""></fa-icon></ng-template>
+              <ng-template [ngIf]="category.categoryName=='Books'"><fa-icon [icon]="['fas', 'book']" size=""></fa-icon></ng-template>
+              <ng-template [ngIf]="category.categoryName=='Travel'"><fa-icon [icon]="['fas', 'plane']" size=""></fa-icon></ng-template>
+              <ng-template [ngIf]="category.categoryName=='Health & Beauty'"><fa-icon [icon]="['fas', 'medkit']" size=""></fa-icon></ng-template>
+              <ng-template [ngIf]="category.categoryName=='Home & Kitchen'"><fa-icon [icon]="['fas', 'coffee']" size=""></fa-icon></ng-template>
+              <ng-template [ngIf]="category.categoryName=='Finance'"><fa-icon [icon]="['fas', 'suitcase']" size=""></fa-icon></ng-template>
+              <ng-template [ngIf]="category.categoryName=='Others'"><fa-icon [icon]="['fas', 'tasks']" size=""></fa-icon></ng-template>
+              <ng-template [ngIf]="category.categoryName=='Gaming'"><fa-icon [icon]="['fas', 'gamepad']" size=""></fa-icon></ng-template>
+              <ng-template [ngIf]="category.categoryName=='Services'"><fa-icon [icon]="['fas', 'users-cog']" size=""></fa-icon></ng-template>
+              <strong> {{category.categoryName}}</strong>
+            </a>
+          </h5>
+        </div>
+        <div class="card-body">
+          <p class="card-text">
+            <small> {{category.offers.length }} offers found</small>
+            
+          </p>
+          <a routerLink="/categories/{{category.pk}}" class="btn btn-warning btn-sm">View All Offers</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- /row class -->
+
+
+</div>
+<!-- /Page Container -->

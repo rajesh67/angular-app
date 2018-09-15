@@ -1,0 +1,77 @@
+<!-- Page Container -->
+<div class="container" id="page">
+
+  <!-- Navigation -->
+  
+<nav aria-label="breadcrumb" id="navigation">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
+      <li class="breadcrumb-item"><a routerLink="/stores">Stores</a></li>
+      <li class="breadcrumb-item active" aria-current="page">{{store.storeAffName}}</li>
+    </ol>
+  </nav>
+  <!-- /Navigation -->
+
+  <!-- row class -->
+  <div class="row">
+    <div class="col-lg-12 col-sm-12 col-md-12" id="pageHeaders">
+        <img src="{{store.logoUrl}}" alt=""  id="storeImg" align="left" style="width:150px; height:50px; margin: 0% auto 2% auto;">
+      <span style="margin-left:2%;">
+        <strong>{{store.storeAffName}} Offers</strong>
+      </span>
+      <span style="margin-left:2%;"><a href="{{store.affUrl}}" target="_blank" class="btn btn-sm btn-warning">shop on {{ store.storeAffName}}</a></span>
+    </div>
+    <!-- /header -->
+    <!-- Left SideBar -->
+    <div class="col-lg-3 leftSideBar">
+      <div class="card">
+        <div class="card-header">
+          <p>Filter by Category</p>
+        </div>
+        <div class="card-body">
+            <div class="form-check">
+              <label class="form-check-label">
+                <input type="checkbox" class="form-check-input" value="">Category Name
+              </label>
+            </div>
+        </div>
+      </div>
+    </div>
+    <!-- /Left SideBar -->
+
+    <!-- Right SideBar -->
+    <div class="storeCard col-lg-9">
+      <!-- No Offers -->
+      <div *ngIf="store.offers.length==0" class="noOffer" align="center">
+          <div class="content">
+              <fa-icon [icon]="['far','smile']" size="4x" ></fa-icon>
+              <p>No offers found</p>
+          </div>
+        </div>
+        <!-- /NO Offers FOunds -->
+
+      <div *ngFor="let offer of store.offers" class="card">
+        <div class="card-header">
+          <h5>
+            <a href="{{offer.offerUrl}}" target="_blank"><strong>{{offer.offerTitle}}</strong></a>
+          </h5>
+        </div>
+        <div class="card-body">
+          <img src="{{offer.offerImageUrl}}" alt="" align="right">
+          <p *ngIf="offer.offerTerms" class="card-text" id="offerTerms">
+              <small>* {{offer.offerTerms}}</small>
+          </p>
+          <a href="{{offer.offerUrl}}" target="_blank" class="btn btn-warning btn-sm">Grab this offer</a>
+        </div>
+        <div class="card-footer">
+          <p><fa-icon [icon]="['fas', 'clock']"></fa-icon>Ends on : {{ offer.offerEndTime | date }}</p>
+        </div>
+      </div>
+    </div>
+    <!-- /Right SideBar -->
+  </div>
+  <!-- /row class -->
+
+
+</div>
+<!-- /Page Container -->

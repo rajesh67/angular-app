@@ -1,0 +1,51 @@
+<!-- Page Container -->
+<div class="container" id="page">
+
+<nav aria-label="breadcrumb" id="navigation">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
+      <li class="breadcrumb-item active" aria-current="page">All Stores</li>
+    </ol>
+  </nav>
+  <!-- /Navigation -->
+  <!-- row class -->
+  <div class="row">
+    <div class="col-lg-12 col-sm-12 col-md-12" id="pageHeaders">
+      <p>
+        <strong>All Available Stores</strong>
+      </p>
+    </div>
+    <!-- /header -->
+
+    <div *ngFor="let store of stores" class="storeCard col-lg-12">
+
+      <div class="card" style="">
+        <div class="card-header">
+          <h5>
+            <a routerLink="/stores/{{store.pk}}">
+              <strong> {{store.storeAffName}}</strong>
+            </a>
+          </h5>
+        </div>
+        <div class="card-body">
+          <p class="card-text">
+            <img src="{{store.logoUrl}}" alt="" align="right">
+            
+            <small> {{store.offers.length }} offers found</small>
+          </p>
+          <a routerLink="/stores/{{store.pk}}" class="btn btn-warning btn-sm">View All Offers</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pagination -->
+    <div class="col-lg-12 col-md-12 col-sm-12" id="pagination">
+      <!-- <ngb-pagination [collectionSize]="stores.length" [(page)]="page" [boundaryLinks]="true"></ngb-pagination> -->
+    </div>
+    <!-- /Pagination -->
+  </div>
+  <!-- /row class -->
+
+
+</div>
+<!-- /Page Container -->

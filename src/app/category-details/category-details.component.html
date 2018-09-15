@@ -1,0 +1,92 @@
+<!-- Page Container -->
+<div class="container" id="page">
+
+  <!-- Navigation -->
+  
+<nav aria-label="breadcrumb" id="navigation">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
+      <li class="breadcrumb-item"><a routerLink="/categories">Categories</a></li>
+      <li class="breadcrumb-item active" aria-current="page">{{category.categoryName}}</li>
+    </ol>
+  </nav>
+  <!-- /Navigation -->
+
+  <!-- row class -->
+  <div class="row">
+    <div class="col-lg-12 col-sm-12 col-md-12" id="pageHeaders">
+      <p>
+          <ng-template [ngIf]="category.categoryName=='Recharge'"><fa-icon [icon]="['fas', 'rupee-sign']" size="1x"></fa-icon></ng-template>
+          <ng-template [ngIf]="category.categoryName=='Fashion'"><fa-icon [icon]="['fas', 'female']" size="1x"></fa-icon></ng-template>
+          <ng-template [ngIf]="category.categoryName=='Entertainment'"><fa-icon [icon]="['fas', 'film']" size=""></fa-icon></ng-template>
+          <ng-template [ngIf]="category.categoryName=='Food & Grocery'"><fa-icon [icon]="['fas', 'utensils']" size=""></fa-icon></ng-template>
+          <ng-template [ngIf]="category.categoryName=='Baby & Kids'"><fa-icon [icon]="['fas', 'child']" size=""></fa-icon></ng-template>
+          <ng-template [ngIf]="category.categoryName=='Electronics'"><fa-icon [icon]="['fas', 'tv']" size=""></fa-icon></ng-template>
+          <ng-template [ngIf]="category.categoryName=='Flowers & Gifts'"><fa-icon [icon]="['fas', 'gift']" size=""></fa-icon></ng-template>
+          <ng-template [ngIf]="category.categoryName=='Books'"><fa-icon [icon]="['fas', 'book']" size=""></fa-icon></ng-template>
+          <ng-template [ngIf]="category.categoryName=='Travel'"><fa-icon [icon]="['fas', 'plane']" size=""></fa-icon></ng-template>
+          <ng-template [ngIf]="category.categoryName=='Health & Beauty'"><fa-icon [icon]="['fas', 'medkit']" size=""></fa-icon></ng-template>
+          <ng-template [ngIf]="category.categoryName=='Home & Kitchen'"><fa-icon [icon]="['fas', 'coffee']" size=""></fa-icon></ng-template>
+          <ng-template [ngIf]="category.categoryName=='Finance'"><fa-icon [icon]="['fas', 'suitcase']" size=""></fa-icon></ng-template>
+          <ng-template [ngIf]="category.categoryName=='Others'"><fa-icon [icon]="['fas', 'tasks']" size=""></fa-icon></ng-template>
+          <ng-template [ngIf]="category.categoryName=='Gaming'"><fa-icon [icon]="['fas', 'gamepad']" size=""></fa-icon></ng-template>
+          <ng-template [ngIf]="category.categoryName=='Services'"><fa-icon [icon]="['fas', 'users-cog']" size=""></fa-icon></ng-template>
+        <strong style="text-align:center;">{{category.categoryName}} Offers</strong>
+      </p>
+    </div>
+    <!-- /header -->
+    <!-- Left SideBar -->
+    <div class="col-lg-3 leftSideBar">
+      <div class="card">
+        <div class="card-header">
+          <p>Filter by store</p>
+        </div>
+        <div class="card-body">
+            <div *ngFor="let store of stores" class="form-check">
+              <label class="form-check-label">
+                <input type="checkbox" class="form-check-input" value="">{{store.storeAffName}}
+              </label>
+            </div>
+        </div>
+      </div>
+    </div>
+    <!-- /Left SideBar -->
+
+    <!-- Right SideBar -->
+    <div class="offerCard col-lg-9">
+      <!-- No Offers -->
+      <div *ngIf="category.offers.length==0" class="noOffer" align="center">
+        <div class="content">
+            <fa-icon [icon]="['far','smile']" size="4x" ></fa-icon>
+            <p>No offers found</p>
+        </div>
+      </div>
+      <!-- /NO Offers FOunds -->
+
+      <div *ngFor="let offer of category.offers" class="card">
+        <div class="card-header">
+          <h5>
+            <a href="{{offer.offerUrl}}" target="_blank"><strong>{{offer.offerTitle}}</strong></a>
+          </h5>
+        </div>
+        <div class="card-body">
+          <img src="{{offer.offerImageUrl}}" alt="" align="right">
+          
+          <p *ngIf="offer.offerTerms" class="card-text" id="offerTerms">
+              <small>* {{offer.offerTerms}}</small>
+          </p>
+          <a href="{{offer.offerUrl}}" target="_blank" class="btn btn-warning btn-sm">Grab this offer</a>
+        </div>
+        <div class="card-footer">
+          <p><fa-icon [icon]="['fas', 'clock']"></fa-icon>Ends on : {{ offer.offerEndTime | date }}</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- /Right SideBar -->
+  </div>
+  <!-- /row class -->
+
+
+</div>
+<!-- /Page Container -->

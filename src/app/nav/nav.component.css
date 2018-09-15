@@ -1,0 +1,38 @@
+.dropdown-menu a:hover{
+    background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-menu{
+    display: inline-block;
+}
+
+ul.nav li{
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+.nav > li.dropdown.open {
+    position: static;
+}
+.nav > li.dropdown.open .dropdown-menu {
+    display:table; width: 100%; text-align: center; left:0; right:0;
+}
+
+.dropdown-menu>div>li {
+    display: table-cell;
+    
+}
+
+.dropdown-menu>div>li>a{
+    text-decoration: none;
+}
+
+.dropdown-menu>li>a:hover{
+    display: block;
+    background-color:white;
+}
+
+.navbar{
+    position: sticky;
+    top: 0;
+}
